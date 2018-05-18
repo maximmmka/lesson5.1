@@ -27,11 +27,10 @@ foreach ($collection as $item) {
 <head>
     <meta charset="utf-8">
     <title>определение координат</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-<h1 class="headers">Определение координат по адресу</h1>
+<h1>Определение координат по адресу</h1>
 
 <form class="form" method="GET">
     <div class="input">
@@ -41,21 +40,22 @@ foreach ($collection as $item) {
 </form>
 
 <?php if (isset($address)): ?>
-    <h2 class="headers"><?=$address; ?></h2>
+    <h2><?=$address; ?></h2>
 <?php endif; ?>
 
 <?php if (isset($latitude)): ?>
-    <p class="text">широта: <?=$latitude; ?></p>
+    <p>широта: <?=$latitude; ?></p>
 <?php endif; ?>
 
 <?php if (isset($longitude)): ?>
-    <p class="text">долгота: <?=$longitude; ?></p>
+    <p>долгота: <?=$longitude; ?></p>
 <?php endif; ?>
 
-<div class="map" id="map"></div>
 
-<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<div id="map" style="width: 600px; height: 400px"></div>
 <script type="text/javascript">
+
     ymaps.ready(init);
     function init() {
         var myMap = new ymaps.Map("map", {
